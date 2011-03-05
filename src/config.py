@@ -1,0 +1,2 @@
+MATRIX_SIZE = 100.0
+IMAGE_STORE = "images"
