@@ -1,7 +1,7 @@
 
 import pyglet
 
-image_frames = ["images/%s.png" % x for x in range(1,54)]
+image_frames = ["images/%s.png" % x for x in range(1,199)]
 
 # Create the list of pyglet images
 images = map(lambda img: pyglet.image.load(img),

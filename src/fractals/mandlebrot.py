@@ -3,12 +3,13 @@ from matrix.scale import scale
 
 class mandlebrot: 
 
-    def __init__(self, zoom_modifier):
-        self.zoom_modifier = zoom_modifier
+    def __init__(self, x_zoom_modifier, y_zoom_modifier):
+        self.x_zoom_modifier = x_zoom_modifier
+        self.y_zoom_modifier = y_zoom_modifier
 
     def inSet(self,cell):   
-        x0 = scale( cell.x, "X", self.zoom_modifier)
-        y0 = scale(cell.y, "Y", self.zoom_modifier)
+        x0 = scale( cell.x, "X", self.x_zoom_modifier)
+        y0 = scale(cell.y, "Y", self.y_zoom_modifier)
 
         x = 0.0
         y = 0.0
