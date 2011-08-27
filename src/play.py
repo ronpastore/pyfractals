@@ -1,7 +1,11 @@
-
+from config import getInputOptions
+getInputOptions()
+from config import IMAGE_STORE
 import pyglet
+import os
 
-image_frames = ["images/%s.png" % x for x in range(1,199)]
+total_frames = len([ x for x in os.listdir(IMAGE_STORE) if x != "." and x!=".."])
+image_frames = ["%s/%s.png" % (IMAGE_STORE, x) for x in range(1,total_frames)]
 
 # Create the list of pyglet images
 images = map(lambda img: pyglet.image.load(img),

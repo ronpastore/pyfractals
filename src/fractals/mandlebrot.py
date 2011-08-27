@@ -1,5 +1,6 @@
 
 from matrix.scale import scale
+from config import DEPTH
 
 class mandlebrot: 
 
@@ -15,9 +16,11 @@ class mandlebrot:
         y = 0.0
 
         iteration = 0
-        max_iteration = 250
+        max_iteration = 50
 
-        while ( x*x + y*y <= (2.0*2.0)  and  iteration < max_iteration ):
+        global DEPTH
+
+        while ( x*x + y*y <= (2.0*2.0)  and  iteration < DEPTH ):
             xtemp = x*x - y*y + x0
             y = 2.0*x*y + y0
             x = xtemp
