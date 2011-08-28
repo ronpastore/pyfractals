@@ -15,11 +15,11 @@ y_zoom_modifier = 1.0
 
 
 
-def spawnWorker( (frame_number, x_zoom_modifier, y_zoom_modifier) ):
+def spawnWorker( (frame_number, x_zoom_modifier, y_zoom_modifier, depth) ):
     frame_creator = FrameCreator(MATRIX_SIZE)
-    image = frame_creator.createFrame(x_zoom_modifier, y_zoom_modifier)
+    image = frame_creator.createFrame(x_zoom_modifier, y_zoom_modifier, depth)
     image.save("%s/%s.png" % (IMAGE_STORE, frame_number), "PNG")
-    print "wrote frame %s with depth %s" % (frame_number, DEPTH)
+    print "wrote frame %s with depth %s" % (frame_number, depth)
 
 
 if __name__ == "__main__":
@@ -31,8 +31,8 @@ if __name__ == "__main__":
     
     worker_input = []
     for frame_number in range(1,FRAMES):
-        worker_input.append( (frame_number, x_zoom_modifier, y_zoom_modifier) )
+        worker_input.append( (frame_number, x_zoom_modifier, y_zoom_modifier, DEPTH) )
         x_zoom_modifier = x_zoom_modifier - 0.006
         y_zoom_modifier = y_zoom_modifier - 0.006      
-
+        DEPTH = DEPTH+1
     process_pool.map(spawnWorker, worker_input)    

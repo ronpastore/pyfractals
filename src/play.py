@@ -4,16 +4,20 @@ from config import IMAGE_STORE
 import pyglet
 import os
 
-total_frames = len([ x for x in os.listdir(IMAGE_STORE) if x != "." and x!=".."])
-image_frames = ["%s/%s.png" % (IMAGE_STORE, x) for x in range(1,total_frames)]
+frame_count = len(
+  [ x for x in os.listdir(IMAGE_STORE) if x != "." and x != ".."]
+)
 
-# Create the list of pyglet images
-images = map(lambda img: pyglet.image.load(img),
-      image_frames)
+image_frames = ["%s/%s.png" % (IMAGE_STORE, x) for x in range(1,frame_count)]
 
-animation = pyglet.image.Animation.from_image_sequence(
-       images, 0.13)
 
+images = map(
+    lambda img: pyglet.image.load(img),
+    image_frames
+)
+
+
+animation = pyglet.image.Animation.from_image_sequence(images, 0.13)
 animSprite = pyglet.sprite.Sprite(animation)
 
  # The main pyglet window with OpenGL context
