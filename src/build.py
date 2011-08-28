@@ -8,6 +8,7 @@ from config import PROCESS_COUNT
 from renderers.frame_creator import FrameCreator
 import os
 from multiprocessing import Pool
+import Image
 
 #dont yet know why theres zoom for x and y but it seems right
 x_zoom_modifier = 1.0
@@ -17,7 +18,9 @@ y_zoom_modifier = 1.0
 
 def spawnWorker( (frame_number, x_zoom_modifier, y_zoom_modifier, depth) ):
     frame_creator = FrameCreator(MATRIX_SIZE)
-    image = frame_creator.createFrame(x_zoom_modifier, y_zoom_modifier, depth)
+    image = Image.new("RGB", (MATRIX_SIZE, MATRIX_SIZE))
+    frame = frame_creator.createFrame(x_zoom_modifier, y_zoom_modifier, depth)
+    frame.populateImage(image) 
     image.save("%s/%s.png" % (IMAGE_STORE, frame_number), "PNG")
     print "wrote frame %s with depth %s" % (frame_number, depth)
 
