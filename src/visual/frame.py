@@ -12,8 +12,11 @@ class frame:
     def __init__(self):
         matrix_range = range(1,MATRIX_SIZE)
         self.matrix = [ [ cell(x,y) for x in matrix_range] for y in matrix_range]
-
-    
+        self.frame_number = None
+        
+    def setFrameNumber(self, frame_number):
+        self.frame_number = frame_number
+        
     def populateImage(self, image):
         for row in self.matrix:
             for cell in row:
