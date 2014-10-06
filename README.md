@@ -1,7 +1,7 @@
 pyfractals
 ==========
 
-A tool for generating fractal images, creating animations and distributing frame creation across multiple machines or processess. NOTE: Currently only supports mandelbrot fractals.
+A tool for generating fractal images, creating animations and distributing frame creation across multiple machines or processes. NOTE: Currently only supports mandelbrot fractals.
 
 
 Examples
@@ -13,7 +13,7 @@ Examples
 Spawn 5 processes to create a 100 frame animation, using 200x200 images, outputting all images into a new directory, "new_animation".
 
 ```sh
-python build.py --size=200 --processess=5 --frames_dir=new_animation --frames=100
+python build.py --size=200 --processes=5 --frames_dir=new_animation --frames=100
 ```
 
 
